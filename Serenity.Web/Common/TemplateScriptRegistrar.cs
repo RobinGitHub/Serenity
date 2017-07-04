@@ -45,9 +45,11 @@ namespace Serenity.Web
             if (path.StartsWith("~/"))
                 path = HostingEnvironment.MapPath(path);
 
-            var sw = new FileSystemWatcher(path);
-            sw.IncludeSubdirectories = true;
-            sw.NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite;
+            var sw = new FileSystemWatcher(path)
+            {
+                IncludeSubdirectories = true,
+                NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite
+            };
             sw.Changed += (s, e) => Changed(e.Name);
             sw.Created += (s, e) => Changed(e.Name);
             sw.Deleted += (s, e) => Changed(e.Name);
@@ -62,8 +64,7 @@ namespace Serenity.Web
             if (key == null)
                 return;
 
-            TemplateScript ts;
-            if (scriptByKey.TryGetValue(key, out ts))
+            if (scriptByKey.TryGetValue(key, out TemplateScript ts))
                 ts.Changed();
 
             if (bundle != null)

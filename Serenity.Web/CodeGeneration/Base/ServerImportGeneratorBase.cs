@@ -330,11 +330,10 @@ namespace Serenity.CodeGeneration
 
         protected Type GetBaseClass(Type type)
         {
-            Type derived;
 
             if (typeof(ListRequest).IsAssignableFrom(type))
                 return typeof(ListRequest);
-            else if (GeneratorUtils.GetFirstDerivedOfGenericType(type, typeof(ListResponse<>), out derived))
+            else if (GeneratorUtils.GetFirstDerivedOfGenericType(type, typeof(ListResponse<>), out Type derived))
                 return typeof(ListResponse<>).MakeGenericType(derived.GetGenericArguments()[0]);
             else if (typeof(RetrieveRequest).IsAssignableFrom(type))
                 return typeof(RetrieveRequest);

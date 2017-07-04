@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-#if ASPNETCORE
+#if COREFX
 using Microsoft.Extensions.Configuration;
 #else
 using System.Configuration;
@@ -43,7 +43,7 @@ namespace Serenity.Web
             if (packages == null)
             {
                 const string key = "LocalTextPackages";
-#if ASPNETCORE
+#if COREFX
                 packages = Dependency.Resolve<IConfiguration>()
                     .GetSection("AppSettings:" + key).Get<Dictionary<string, string[]>>();
 #else
