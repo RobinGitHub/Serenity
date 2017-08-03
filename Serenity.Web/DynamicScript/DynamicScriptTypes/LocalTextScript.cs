@@ -42,15 +42,8 @@ namespace Serenity.Web
         {
             if (packages == null)
             {
-                const string key = "LocalTextPackages";
-#if COREFX
-                packages = Dependency.Resolve<IConfiguration>()
-                    .GetSection("AppSettings:" + key).Get<Dictionary<string, string[]>>();
-#else
-                var setting = ConfigurationManager.AppSettings[key];
-                packages = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(
-                    setting.TrimToNull() ?? "{}", JsonSettings.Tolerant);
-#endif
+                packages = (Dictionary<string, string[]>)Dependency.Resolve<IConfigurationManager>()
+                    .AppSetting("LocalTextPackages", typeof(Dictionary<string, string[]>)) ?? new Dictionary<string, string[]>();
             }
 
             string[] packageItems;
