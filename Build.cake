@@ -26,6 +26,7 @@ var nuspecParams = new Dictionary<string, string> {
 
 var dotnetBuildOrder = new string[] {
     "Serenity.Core",
+    "Serenity.Configuration",
     "Serenity.Caching.Couchbase",
     "Serenity.Caching.Redis",
     "Serenity.Data",
@@ -323,6 +324,7 @@ Task("Pack")
     .Does(() =>
 {   
     myPack("Serenity.Core", null, null);
+    myPack("Serenity.Configuration", null, null);
     myPack("Serenity.Caching.Couchbase", null, null);
     myPack("Serenity.Caching.Redis", null, null);
     myPack("Serenity.Data", null, null);

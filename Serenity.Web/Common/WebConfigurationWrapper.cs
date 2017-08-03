@@ -5,7 +5,7 @@ namespace Serenity.Configuration
     using Serenity.Abstractions;
     using System;
 
-    public class ConfigurationManagerWrapper : IConfigurationManager
+    public class WebConfigurationWrapper : IConfigurationManager
     {
         public object AppSetting(string key, Type settingType)
         {

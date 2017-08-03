@@ -27,7 +27,7 @@ namespace Serenity.Test
             {
                 var registrar = Dependency.Resolve<IDependencyRegistrar>();
                 registrar.RegisterInstance<ILocalCache>(new LocalCacheEmulator());
-                registrar.RegisterInstance<IConfigurationManager>(new ConfigurationManagerWrapper());
+                registrar.RegisterInstance<IConfigurationManager>(new WebConfigurationWrapper());
 
                 var actual = new AppSettingsJsonConfigRepository().Load(typeof(TestDbSettings)) as TestDbSettings;
                 Assert.NotNull(actual);
@@ -44,7 +44,7 @@ namespace Serenity.Test
             {
                 var registrar = Dependency.Resolve<IDependencyRegistrar>();
                 registrar.RegisterInstance<ILocalCache>(new LocalCacheEmulator());
-                registrar.RegisterInstance<IConfigurationManager>(new ConfigurationManagerWrapper());
+                registrar.RegisterInstance<IConfigurationManager>(new WebConfigurationWrapper());
 
                 var actual = new AppSettingsJsonConfigRepository().Load(typeof(MyTestDbSettings)) as MyTestDbSettings;
                 Assert.NotNull(actual);
