@@ -53,7 +53,11 @@ namespace Serenity.Data
             {
                 var newConnections = new Dictionary<string, ConnectionStringInfo>(connections);
 
-                var connectionSetting = Dependency.TryResolve<IConfigurationManager>().ConnectionString(connectionKey);
+                var configuration = Dependency.TryResolve<IConfigurationManager>();
+                if (configuration == null)
+                    return null;
+
+                var connectionSetting = configuration.ConnectionString(connectionKey);
                 if (connectionSetting == null)
                     return null;
 

@@ -19,7 +19,6 @@
       </group>
       <group targetFramework=".NETStandard1.6">
         <dependency id="Microsoft.Extensions.Caching.Memory" version="${netstandard1.6:Microsoft.Extensions.Caching.Memory}" />
-        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="${netstandard1.6:Microsoft.Extensions.Configuration.Abstractions}" />
         <dependency id="Microsoft.Extensions.DependencyModel" version="${netstandard1.6:Microsoft.Extensions.DependencyModel}" />
         <dependency id="Microsoft.Extensions.Options" version="${netstandard1.6:Microsoft.Extensions.Options}" />
         <dependency id="Newtonsoft.Json" version="${*:Newtonsoft.Json}" />

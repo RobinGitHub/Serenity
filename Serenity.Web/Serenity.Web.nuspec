@@ -40,6 +40,7 @@
         <dependency id="Microsoft.AspNetCore.Mvc.ViewFeatures" version="${netstandard1.6:Microsoft.AspNetCore.Mvc.ViewFeatures}" />
         <dependency id="Microsoft.Extensions.Caching.Abstractions" version="${netstandard1.6:Microsoft.Extensions.Caching.Abstractions}" />
         <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="${netstandard1.6:Microsoft.Extensions.Configuration.Abstractions}" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="${netstandard1.6:Microsoft.Extensions.Configuration.Binder}" />
         <dependency id="Newtonsoft.Json" version="${*:Newtonsoft.Json}" />
         <dependency id="NUglify" version="${*:NUglify}" />
         <dependency id="Serenity.Core" version="${version}" />
