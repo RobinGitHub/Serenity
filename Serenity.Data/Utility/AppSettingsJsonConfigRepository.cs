@@ -20,7 +20,11 @@
 
             return LocalCache.Get("ApplicationSetting:" + settingType.FullName, TimeSpan.Zero, delegate ()
             {
-                return Dependency.Resolve<IConfigurationManager>().AppSetting(key, settingType) ??
+                var configuration = Dependency.TryResolve<IConfigurationManager>();
+                if (configuration == null)
+                    return Activator.CreateInstance(settingType);
+
+                return configuration.AppSetting(key, settingType) ?? 
                     Activator.CreateInstance(settingType);
             });
         }
